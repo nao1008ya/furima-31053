@@ -1,16 +1,16 @@
 # テーブル設計
 ## usersテーブル
 
-| Column          | Type       | Options     |
-| --------------- | ---------- | ----------- |
-| nickname        | string     | null: false |
-| email           | string     | null: false |
-| password        | string     | null: false |
-| first_name      | string     | null: false |
-| last_name       | string     | null: false |
-| first_kana_name | string     | null: false |
-| last_kana_name  | string     | null: false |
-| birthday        | date       | null: false |
+| Column             | Type       | Options     |
+| ------------------ | ---------- | ----------- |
+| nickname           | string     | null: false |
+| email              | string     | null: false |
+| encrypted_password | string     | null: false |
+| first_name         | string     | null: false |
+| last_name          | string     | null: false |
+| first_kana_name    | string     | null: false |
+| last_kana_name     | string     | null: false |
+| birthday           | date       | null: false |
 
 ### Association
 
@@ -30,7 +30,7 @@
 | category_id         | integer    | null: false |
 | item_status_id      | integer    | null: false |
 | shipping_fee_id     | integer    | null: false |
-| prefectures_id      | integer    | null: false |
+| prefecture_id       | integer    | null: false |
 | shipping_fee_day_id | integer    | null: false |
 
 ### Association
@@ -54,15 +54,15 @@
 
 ## input_formatsテーブル
 
-| Column         | Type       | Options     |
-| -------------- | ---------- | ----------- |
-| postal_code    | string     | null: false |
-| city           | string     | null: false |
-| city_address   | string     | null: false |
-| apartment      | string     |             |
-| tel            | string     | null: false |
-| buyer          | references | null: false |
-| prefectures_id | integer    | null: false |
+| Column        | Type       | Options     |
+| ------------- | ---------- | ----------- |
+| postal_code   | string     | null: false |
+| city          | string     | null: false |
+| city_address  | string     | null: false |
+| apartment     | string     |             |
+| tel           | string     | null: false |
+| buyer         | references | null: false |
+| prefecture_id | integer    | null: false |
 
 ### Association
 
