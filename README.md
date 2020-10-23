@@ -21,31 +21,32 @@
 
 ## itemsテーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ----------- |
-| title            | string     | null: false |
-| catch_copy       | text       | null: false |
-| price            | integer    | null: false |
-| user             | references | null: false |
-| buyers           | references | null: false |
-| category         | integer    | null: false |
-| item_status      | integer    | null: false |
-| shipping_fee     | integer    | null: false |
-| prefectures_item | integer    | null: false |
-| shipping_fee_day | integer    | null: false |
+| Column              | Type       | Options     |
+| ------------------- | ---------- | ----------- |
+| title               | string     | null: false |
+| catch_copy          | text       | null: false |
+| price               | integer    | null: false |
+| user_id             | references | null: false |
+| buyer_id            | references | null: false |
+| category_id         | integer    | null: false |
+| item_status_id      | integer    | null: false |
+| shipping_fee_id     | integer    | null: false |
+| prefectures_item_id | integer    | null: false |
+| shipping_fee_day_id | integer    | null: false |
 
 ### Association
 
 - belong_to :user
 - has_one :buyer
+- has_one :input_format
 - has_many :comments
 
 ## buyersテーブル
 
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| user   | references | null: false |
-| item   | references | null: false |
+| Column  | Type       | Options     |
+| ------- | ---------- | ----------- |
+| user_id | references | null: false |
+| item_id | references | null: false |
 
 ### Association
 
@@ -55,16 +56,20 @@
 
 ## input_formatsテーブル
 
-| Column            | Type       | Options     |
-| ----------------- | ---------- | ----------- |
-| postal_code       | integer    | null: false |
-| city              | string     | null: false |
-| city_address      | string     | null: false |
-| apartment         | string     |             |
-| tel               | integer    | null: false |
-| buyer             | references | null: false |
-| item              | references | null: false |
-| prefectures_buyer | integer    | null: false |
+| Column               | Type       | Options     |
+| -------------------- | ---------- | ----------- |
+| postal_code          | string     | null: false |
+| city                 | string     | null: false |
+| city_address         | string     | null: false |
+| apartment            | string     |             |
+| tel                  | string     | null: false |
+| item_id              | references | null: false |
+| prefectures_buyer_id | integer    | null: false |
+
+### Association
+
+- has_one :buyer
+- has_one :item
 
 # ## commentsテーブル
 
