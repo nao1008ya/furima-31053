@@ -35,7 +35,7 @@
 
 ### Association
 
-- belong_to :user
+- belongs_to :user
 - has_one :buyer
 - has_many :comments
 
@@ -48,7 +48,7 @@
 
 ### Association
 
-- belong_to :user
+- belongs_to :user
 - belongs_to :item
 - has_one :input_format
 
@@ -78,5 +78,5 @@
 
 # ### Association
 
-# - belong_to :user
-# - belong_to :items
+# - belongs_to :user
+# - belongs_to :items
