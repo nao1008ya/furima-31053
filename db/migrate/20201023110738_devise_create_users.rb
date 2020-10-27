@@ -33,7 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       # t.datetime :locked_at
       
       # birthdayのカラムの型記述
-      t.date  null: false,
+      t.date  null: false
       
       t.timestamps null: false
     end
