@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   # 各アクションが動く前にログインしているかしていないかを判断し、
   # ログインしていなければアクションを動かすことなくログインページが表示されるようするメソッド
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:show]
 
   def index
     # 記事一覧が新規投稿順に並ぶように記述
@@ -24,9 +25,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+
   private
 
   def item_params
     params.require(:item).permit(:title, :catch_copy, :category_id, :item_status_id, :shipping_fee_id, :prefecture_id, :shipping_fee_day_id, :price, :image).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
