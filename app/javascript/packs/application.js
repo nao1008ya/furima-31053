@@ -4,7 +4,8 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// "turbolinks"をコメントアウトすることにより、jsが正しく読み込まれる。
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../price")
