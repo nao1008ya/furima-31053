@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     # if文を用いてページのアクセスを設定する。
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to item_path(item.id)
+      redirect_to item_path(@item.id)
     else
       render :edit
     end
