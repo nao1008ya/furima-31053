@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # 各アクションが動く前にログインしているかしていないかを判断し、
   # ログインしていなければアクションを動かすことなくログインページが表示されるようするメソッド
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     # 記事一覧が新規投稿順に並ぶように記述
@@ -39,7 +39,6 @@ class ItemsController < ApplicationController
     # updateで完結する為、@必要なし
     # 投稿後すぐにupdateにて更新する。validetesが絡むと必ずこのような記述になる。
     # if文を用いてページのアクセスを設定する。
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
