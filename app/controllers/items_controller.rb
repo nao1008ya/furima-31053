@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # 各アクションが動く前にログインしているかしていないかを判断し、
   # ログインしていなければアクションを動かすことなくログインページが表示されるようするメソッド
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     # 記事一覧が新規投稿順に並ぶように記述
@@ -47,6 +47,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    # 投稿者以外のユーザーが、削除できないように
+    if @item.user.id == current_user.id
+      @item.destroy
+      redirect_to root_path
+    else
+      redirect_to action: :index
+    end
+    
   end
 
 
