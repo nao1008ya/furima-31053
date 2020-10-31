@@ -1,0 +1,2 @@
+module InputFormatsHelper
+end

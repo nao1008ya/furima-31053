@@ -70,3 +70,5 @@ gem 'active_hash'
 # Active Storage導入
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+# PAY.JPのAPIを利用して決済処理が行えるようにする
+gem 'payjp'

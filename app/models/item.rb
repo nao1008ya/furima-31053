@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   # アソシエーション設定
   belongs_to :user
-  # has_one :buyer
+  has_one :buyer
   # has_many :comments
 
   # ActiveStorage 各レコードとファイルを1対1の関係で紐付けるメソッド
