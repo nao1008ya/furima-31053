@@ -1,9 +1,9 @@
 class BuyersController < ApplicationController
+  before_action :set_item, only: [:index, :create]
   # 各アクションが動く前にログインしているかしていないかを判断し、
   # ログインしていなければアクションを動かすことなくログインページが表示されるようするメソッド
   before_action :authenticate_user!
   def index
-    @item = Item.find(params[:item_id])
     @user_buyer = UserBuyer.new
     # ログインユーザーと出品者が同じ場合はトップページへ
     # 1度購入した商品は推移できないように
@@ -11,7 +11,6 @@ class BuyersController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @user_buyer = UserBuyer.new(buyer_params)
     # バリデーションのチェックが行われる
     if @user_buyer.valid?
@@ -27,6 +26,10 @@ class BuyersController < ApplicationController
 
   def buyer_params
     params.require(:user_buyer).permit(:postal_code, :prefecture_id, :city, :city_address, :apartment, :tel).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def pay_item
