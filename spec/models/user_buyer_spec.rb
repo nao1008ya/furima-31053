@@ -17,21 +17,21 @@ RSpec.describe UserBuyer, type: :model do
     end
 
     context '商品出品が上手くいかないとき' do
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @user_buyer.token = nil
         @user_buyer.valid?
         expect(@user_buyer.errors.full_messages).to include("Token can't be blank")
       end
 
-      it "postal_codeが空では登録できないこと" do
+      it 'postal_codeが空では登録できないこと' do
         @user_buyer.postal_code = nil
         @user_buyer.valid?
         expect(@user_buyer.errors.full_messages).to include("Postal code can't be blank")
       end
-      it "postal_codeに-が入っていなければ登録できないこと" do
-        @user_buyer.postal_code = "1000011"
+      it 'postal_codeに-が入っていなければ登録できないこと' do
+        @user_buyer.postal_code = '1000011'
         @user_buyer.valid?
-        expect(@user_buyer.errors.full_messages).to include("Postal code is invalid")
+        expect(@user_buyer.errors.full_messages).to include('Postal code is invalid')
       end
 
       it 'prefecture_idがない場合は登録できないこと' do
@@ -45,29 +45,28 @@ RSpec.describe UserBuyer, type: :model do
         expect(@user_buyer.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
-      it "cityが空では登録できないこと" do
+      it 'cityが空では登録できないこと' do
         @user_buyer.city = nil
         @user_buyer.valid?
         expect(@user_buyer.errors.full_messages).to include("City can't be blank")
       end
 
-      it "city_addressが空では登録できないこと" do
+      it 'city_addressが空では登録できないこと' do
         @user_buyer.city_address = nil
         @user_buyer.valid?
         expect(@user_buyer.errors.full_messages).to include("City address can't be blank")
       end
 
-      it "telが空では登録できないこと" do
+      it 'telが空では登録できないこと' do
         @user_buyer.tel = nil
         @user_buyer.valid?
         expect(@user_buyer.errors.full_messages).to include("Tel can't be blank")
       end
-      it "telが半角数字以外では登録できないこと" do
-        @user_buyer.tel = "０９０１１２２３３４４"
+      it 'telが半角数字以外では登録できないこと' do
+        @user_buyer.tel = '０９０１１２２３３４４'
         @user_buyer.valid?
-        expect(@user_buyer.errors.full_messages).to include("Tel is invalid")
+        expect(@user_buyer.errors.full_messages).to include('Tel is invalid')
       end
-
     end
   end
 end

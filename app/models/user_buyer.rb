@@ -7,12 +7,12 @@ class UserBuyer
   with_options presence: true do
     validates :prefecture_id, :city, :city_address, :token
     # 「住所」の郵便番号に関するバリデーション
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/ }
     # 「住所」の電話番号に関するバリデーション
     validates :tel, format: { with: /[0-9]{10,11}/ }
   end
   # ジャンルの選択が「--」の時は保存できないようにする
-  validates :prefecture_id, numericality: { other_than: 1 } 
+  validates :prefecture_id, numericality: { other_than: 1 }
 
   def save
     # 購入の情報を保存

@@ -6,6 +6,4 @@ class InputFormat < ApplicationRecord
   # # belongs_to_active_hashメソッドを使います。
   # extend ActiveHash::Associations::ActiveRecordExtensions
   # belongs_to_active_hash :prefecture
-
-  
 end
