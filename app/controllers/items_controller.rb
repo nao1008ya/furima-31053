@@ -30,6 +30,10 @@ class ItemsController < ApplicationController
     # その為、インスタンス変数である@つける
     
     # 投稿者以外のユーザーが、投稿者専用のページに遷移できないように
+    # 購入後の商品が編集ページへ推移できないように
+    if @item.buyer
+      redirect_to action: :index
+    end
     unless @item.user.id == current_user.id
       redirect_to action: :index
     end

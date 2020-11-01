@@ -6,7 +6,8 @@ class BuyersController < ApplicationController
     @item = Item.find(params[:item_id])
     @user_buyer = UserBuyer.new
     # ログインユーザーと出品者が同じ場合はトップページへ
-    if @item.user.id == current_user.id
+    # 1度購入した商品は推移できないように
+    if @item.user.id == current_user.id || @item.buyer
       redirect_to root_path
     end
     
