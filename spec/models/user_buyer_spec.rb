@@ -67,6 +67,11 @@ RSpec.describe UserBuyer, type: :model do
         @user_buyer.valid?
         expect(@user_buyer.errors.full_messages).to include('Tel is invalid')
       end
+      it 'telが11桁以上では登録できないこと' do
+        @user_buyer.tel = '090123456789'
+        @user_buyer.valid?
+        expect(@user_buyer.errors.full_messages).to include("Tel is too long (maximum is 11 characters)")
+      end
     end
   end
 end

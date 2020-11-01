@@ -5,7 +5,7 @@ FactoryBot.define do
     city { Gimei.city.kanji }
     city_address { '1-1-1' }
     apartment { 'マンション' }
-    tel { Faker::Number.number(digits: 11) }
+    tel { '09012345678' }
     token { 'tok_abcdefghijk00000000000000000' }
   end
 end
