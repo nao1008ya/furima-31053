@@ -1,0 +1,2 @@
+class InputFormatsController < ApplicationController
+end

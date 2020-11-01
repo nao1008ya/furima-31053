@@ -28,11 +28,11 @@ class ItemsController < ApplicationController
   def edit
     # ルーティングからきてモデルから受け取ったparamsをviewsに流すその後updateへ
     # その為、インスタンス変数である@つける
-    
+
     # 投稿者以外のユーザーが、投稿者専用のページに遷移できないように
-    unless @item.user.id == current_user.id
-      redirect_to action: :index
-    end
+    # 購入後の商品が編集ページへ推移できないように
+    redirect_to action: :index if @item.buyer
+    redirect_to action: :index unless @item.user.id == current_user.id
   end
 
   def update
@@ -57,9 +57,7 @@ class ItemsController < ApplicationController
     else
       redirect_to action: :index
     end
-    
   end
-
 
   private
 

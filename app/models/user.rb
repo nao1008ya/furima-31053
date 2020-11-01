@@ -21,8 +21,8 @@ class User < ApplicationRecord
     end
   end
 
-  # itemsテーブルとbuyersテーブルとcommentsテーブルのアソシエーションを設定
+  # アソシエーションを設定
   has_many :items
-  # has_many :buyers
+  has_many :buyers
   # has_many :comments
 end
