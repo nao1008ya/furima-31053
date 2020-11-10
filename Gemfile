@@ -72,3 +72,5 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 # PAY.JPのAPIを利用して決済処理が行えるようにする
 gem 'payjp'
+# 日本語に対応する"rails-i18n"というGemを導入
+gem 'rails-i18n'
