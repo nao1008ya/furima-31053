@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :cards, only: [:new, :create, :show]
   resources :items do
+    collection do
+      get 'search'
+    end
     resources :buyers, only: [:index, :create]
   end
 end
