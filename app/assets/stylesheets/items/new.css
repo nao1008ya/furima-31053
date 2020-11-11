@@ -227,3 +227,9 @@
 .inc {
   font-size: 13px;
 }
+
+.search-result-tag {
+  padding: 15px;
+  font-size: 20px;
+  border-bottom: solid 2px #aaa;
+}

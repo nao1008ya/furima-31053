@@ -144,7 +144,11 @@
               <%= item.title %>
             </h3>
             <div class='item-price'>
-              <span><%= item.price %>円<br><%= item.shipping_fee.name %></span>
+              <span><%= item.price %>円<br><%= item.shipping_fee.name %>
+                <% item.tags.each do |tag| %>
+                  #<%=tag.name%>
+                <%end%>
+              </span>
               <div class='star-btn'>
                 <%= image_tag "star.png", class:"star-icon" %>
                 <span class='star-count'>0</span>

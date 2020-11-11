@@ -9,17 +9,25 @@ class ItemsController < ApplicationController
     @items = Item.order('created_at DESC')
   end
 
+  def search
+    return nil if params[:keyword] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
+    render json:{ keyword: tag }
+  end
+
+
   def new
     # 空の出品ページを作成。
-    @item = Item.new
+    @item = ItemsTag.new
   end
 
   def create
     # 出品後すぐにsaveにて保存する。validetesが絡むと必ずこのような記述になる。
     # if文を用いてページのアクセスを設定する。
-    @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
+    @item = ItemsTag.new(item_params)
+    if @item.valid? 
+      @item.save
+      return redirect_to root_path
     else
       render :new
     end
@@ -62,7 +70,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :catch_copy, :category_id, :item_status_id, :shipping_fee_id, :prefecture_id, :shipping_fee_day_id, :price, :image).merge(user_id: current_user.id)
+    params.require(:items_tag).permit(:title, :catch_copy, :category_id, :item_status_id, :shipping_fee_id, :prefecture_id, :shipping_fee_day_id, :price, :image, :name).merge(user_id: current_user.id)
   end
 
   def set_item
