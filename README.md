@@ -17,6 +17,7 @@
 - has_many :items
 - has_many :buyers
 - has_many :comments
+- has_one :card, dependent: :destroy
 
 
 ## itemsテーブル
@@ -67,6 +68,18 @@
 ### Association
 
 - belongs_to :buyer
+
+## cardsテーブル
+
+| Column         | Type       | Options     |
+| -------------- | ---------- | ----------- |
+| card_token     | string     | null: false |
+| customer_token | string     | null: false |
+| user           | references | null: false |
+
+### Association
+
+- belongs_to :user
 
 # ## commentsテーブル
 
