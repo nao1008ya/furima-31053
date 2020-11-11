@@ -1,5 +1,8 @@
 class CardsController < ApplicationController
   def new
+    if current_user.card
+      redirect_to root_path
+    end
   end
 
   def create
@@ -8,7 +11,6 @@ class CardsController < ApplicationController
     description: 'test', # テストカードであることを説明
     card: params[:card_token] # 登録しようとしているカード情報
     )
-    # binding.pry
     card = Card.new( # トークン化されたカード情報を保存する
       card_token: customer.default_card, # カードトークン
       customer_token: customer.id, # 顧客トークン
