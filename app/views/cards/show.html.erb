@@ -1,0 +1,46 @@
+<%= render "shared/second-header"%>
+
+<div class='transaction-contents'>
+  <div class='transaction-main'>
+
+    <%= form_with  url: card_path(@card.id), class: 'transaction-form-wrap',local: true do |f| %>
+
+    <%# カード情報 %>
+    <div class='credit-card-form'>
+      <h1 class='info-input-haedline'>
+        クレジットカード情報
+      </h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">カード情報</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= "**** **** **** " + @card[:last4] %>
+        <%# カード番号の下4桁を取得 %>
+        <div class='available-card'>
+          <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+          <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+          <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
+          <%= image_tag 'card-amex.gif', class: 'card-logo'%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">有効期限</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-expiration-date-wrap'>
+          <%= @card[:exp_month] %>
+          <%# 有効期限の「月」を取得 %>
+          <p>月</p>
+          <%= @card[:exp_year] %>
+          <%# 有効期限の「年」を取得 %>
+          <p>年</p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/second-footer"%>

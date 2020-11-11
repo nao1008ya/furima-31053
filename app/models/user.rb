@@ -24,5 +24,6 @@ class User < ApplicationRecord
   # アソシエーションを設定
   has_many :items
   has_many :buyers
+  has_one :card, dependent: :destroy
   # has_many :comments
 end
