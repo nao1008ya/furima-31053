@@ -1,11 +1,11 @@
 class UserBuyer
   include ActiveModel::Model
   # 保存したい複数のテーブルのカラム名全てを属性値として扱えるようにする
-  attr_accessor :postal_code, :prefecture_id, :city, :city_address, :apartment, :tel, :user_id, :item_id, :buyer_id, :token
+  attr_accessor :postal_code, :prefecture_id, :city, :city_address, :apartment, :tel, :user_id, :item_id, :buyer_id # :token
 
   # 空の投稿を保存できないようにする
   with_options presence: true do
-    validates :prefecture_id, :city, :city_address, :token
+    validates :prefecture_id, :city, :city_address # :token
     # 「住所」の郵便番号に関するバリデーション
     validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/ }
     # 「住所」の電話番号に関するバリデーション
