@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   # ログインしていなければアクションを動かすことなくログインページが表示されるようするメソッド
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :search_item, only: [:index, :searchransack]
+  before_action :search_item, only: [:index, :searchransack, :show]
 
 
   def index
@@ -65,6 +65,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    set_user_column
   end
 
   def destroy

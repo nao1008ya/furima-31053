@@ -76,3 +76,5 @@ gem 'payjp'
 gem 'rails-i18n'
 # シンプルな検索フォームと高度な検索フォームの作成を可能にするgem
 gem 'ransack'
+# リンクを設置したリストを画面に表示する機能を実装
+gem "gretel"
