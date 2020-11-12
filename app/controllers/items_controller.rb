@@ -20,7 +20,6 @@ class ItemsController < ApplicationController
   end
 
   def searchransack
-    # binding.pry
     @results = @p.result.includes(:user)  # 検索条件にマッチした商品の情報を取得
     set_user_column
   end
@@ -81,7 +80,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:items_tag).permit(:title, :catch_copy, :category_id, :item_status_id, :shipping_fee_id, :prefecture_id, :shipping_fee_day_id, :price, :image, :name).merge(user_id: current_user.id)
+    params.require(:items_tag).permit(:title, :catch_copy, :category_id, :item_status_id, :shipping_fee_id, :prefecture_id, :shipping_fee_day_id, :price, :name, images: []).merge(user_id: current_user.id)
   end
 
   def set_item
