@@ -233,3 +233,11 @@
   font-size: 20px;
   border-bottom: solid 2px #aaa;
 }
+
+.image-list {
+  padding-top: 20px;
+}
+.image-list img {
+  height: 100px;
+  width: 100px;
+}
