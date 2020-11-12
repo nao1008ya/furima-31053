@@ -38,7 +38,32 @@
 
 - belongs_to :user
 - has_one :buyer
+- has_many :item_tag_relations
+- has_many :tags, through: :item_tag_relations
 - has_many :comments
+
+## tagsテーブル
+
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| name   | string     | null: false |
+
+### Association
+
+- has_many :item_tag_relations
+- has_many :items, through: :item_tag_relations
+
+## items_tagテーブル
+
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| tag    | references | null: false |
+| item   | references | null: false |
+
+### Association
+
+- belongs_to :tag
+- belongs_to :item
 
 ## buyersテーブル
 

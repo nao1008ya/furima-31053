@@ -3,16 +3,26 @@ class ItemsController < ApplicationController
   # ログインしていなければアクションを動かすことなくログインページが表示されるようするメソッド
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :search_item, only: [:index, :searchransack]
+
 
   def index
     # 記事一覧が新規投稿順に並ぶように記述
     @items = Item.order('created_at DESC')
+    set_user_column
   end
 
   def search
+    # タグ付け機能実装のsearch
     return nil if params[:keyword] == ""
     tag = Tag.where(['name LIKE ?', "%#{params[:keyword]}%"] )
     render json:{ keyword: tag }
+  end
+
+  def searchransack
+    # binding.pry
+    @results = @p.result.includes(:user)  # 検索条件にマッチした商品の情報を取得
+    set_user_column
   end
 
 
@@ -75,5 +85,13 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def search_item
+    @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
+  end
+
+  def set_user_column
+    @user_nickname = User.select("nickname").distinct
   end
 end

@@ -74,3 +74,5 @@ gem 'image_processing', '~> 1.2'
 gem 'payjp'
 # 日本語に対応する"rails-i18n"というGemを導入
 gem 'rails-i18n'
+# シンプルな検索フォームと高度な検索フォームの作成を可能にするgem
+gem 'ransack'

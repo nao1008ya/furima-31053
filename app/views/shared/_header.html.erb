@@ -9,6 +9,40 @@
       </button>
     </form>
   </div>
+  <div class="kensaku-tag">
+    <%= search_form_for @p, url: searchransack_items_path do |f| %>
+      <%= f.label :category_id_eq, 'カテゴリー' %>
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: '指定なし' %>
+      
+      <%= f.label :shipping_fee_id_eq, '商品の状態' %>
+      <%= f.collection_select :shipping_fee_id_eq, ItemStatus.all, :id, :name, include_blank: '指定なし' %>
+      <br>
+      <%= f.label :shipping_fee_id_eq, '配送料の負担' %>
+      <%= f.collection_select :shipping_fee_id_eq, ShippingFee.all, :id, :name, include_blank: '指定なし' %>
+      
+      <%= f.label :prefecture_id_eq, '発送元の地域' %>
+      <%= f.collection_select :prefecture_id_eq, Prefecture.all, :id, :name, include_blank: '指定なし' %>
+      <br>
+      <%= f.label :shipping_fee_day_id_eq, '発送までの日数' %>
+      <%= f.collection_select :shipping_fee_day_id_eq, ShippingFeeDay.all, :id, :name, include_blank: '指定なし' %>
+      
+      <%= f.label :user_nickname_eq, '出品者' %>
+      <%= f.collection_select :user_nickname_eq, @user_nickname, :nickname, :nickname, include_blank: '指定なし' %>
+      <br>
+      <%= f.label :price, '価格：' %>
+      <%= f.radio_button :price_lteq, '' %>
+      指定なし
+      <%= f.radio_button :price_lteq, '1000' %>
+      1000円以下
+      <%= f.radio_button :price_lteq, '5000' %>
+      5000円以下
+      <%= f.radio_button :price_lteq, '10000' %>
+      10000円以下
+      <%= f.radio_button :price_lteq, '100000' %>
+      100000円以下
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
