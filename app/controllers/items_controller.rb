@@ -69,6 +69,7 @@ class ItemsController < ApplicationController
 
   def destroy
     # 投稿者以外のユーザーが、削除できないように
+    binding.pry
     if @item.user.id == current_user.id
       @item.destroy
       redirect_to root_path

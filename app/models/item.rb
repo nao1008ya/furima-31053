@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   # アソシエーション設定
   belongs_to :user
   has_one :buyer
-  has_many :item_tag_relations
+  has_many :item_tag_relations, foreign_key: "item_id", dependent: :destroy
   has_many :tags, through: :item_tag_relations
   # has_many :comments
 

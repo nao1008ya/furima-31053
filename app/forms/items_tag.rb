@@ -21,7 +21,7 @@ class ItemsTag
   def save
     item = Item.new(title: title,catch_copy: catch_copy, category_id: category_id, item_status_id: item_status_id, shipping_fee_id: shipping_fee_id, prefecture_id: prefecture_id, shipping_fee_day_id: shipping_fee_day_id, price: price, user_id: user_id, images: images,)
     item.save
-    binding.pry
+    
     tag = Tag.where(name: name).first_or_initialize
     tag.save
     ItemTagRelation.create(item_id: item.id, tag_id: tag.id)
