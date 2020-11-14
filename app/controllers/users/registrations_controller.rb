@@ -24,7 +24,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_name
     @user = User.new(session["devise.regist_data"]["user"])
     @user_name = User.new(sign_up_params)
-    binding.pry
     # @userに@user_nameの値を代入
     @user.first_name = @user_name.first_name
     @user.first_kana_name = @user_name.first_kana_name
