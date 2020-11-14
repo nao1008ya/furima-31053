@@ -145,6 +145,7 @@
   line-height: 48px;
   font-size: 14px;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .register-info {
@@ -152,4 +153,8 @@
   color: #0099e8;
   text-align: right;
   cursor: pointer;
+}
+
+.devise-error {
+  text-align: center;
 }
