@@ -3,6 +3,7 @@
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
   
 
+
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
@@ -11,6 +12,11 @@
   </div>
   <div class="devise-error">
     <%= render "devise/shared/error_messages", resource: @user, model: f.object %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class:"google-login-red-btn"%>
+    </div>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>

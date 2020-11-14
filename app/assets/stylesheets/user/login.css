@@ -18,3 +18,11 @@
   text-align: center;
   color: red;
 }
+
+.google-login-red-btn {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 80px;
+  background-color: gray;
+  border: 1px solid #ea352d;
+}

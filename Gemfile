@@ -78,3 +78,6 @@ gem 'rails-i18n'
 gem 'ransack'
 # リンクを設置したリストを画面に表示する機能を実装
 gem "gretel"
+# SNS認証のGem
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
