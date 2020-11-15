@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_one :buyer
   has_many :item_tag_relations, foreign_key: "item_id", dependent: :destroy
   has_many :tags, through: :item_tag_relations
-  # has_many :comments
+  has_many :comments
 
   # ActiveStorage 各レコードとファイルを1対多の関係で紐付けるメソッド
   has_many_attached :images

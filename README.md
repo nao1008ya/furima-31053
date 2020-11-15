@@ -106,15 +106,15 @@
 
 - belongs_to :user
 
-# ## commentsテーブル
+## commentsテーブル
 
-# | Column | Type       | Options     |
-# | ------ | ---------- | ----------- |
-# | text   | text       | null: false |
-# | user   | references | null: false |
-# | item   | references | null: false |
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| text   | text       | null: false |
+| user   | references | null: false |
+| item   | references | null: false |
 
-# ### Association
+### Association
 
-# - belongs_to :user
-# - belongs_to :items
+- belongs_to :user
+- belongs_to :items
