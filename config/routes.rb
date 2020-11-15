@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/new'
   get 'cards/new'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
       get 'search'
       get 'searchransack'
     end
+    resources :comments, only: [:create]
     resources :buyers, only: [:index, :create]
   end
 end

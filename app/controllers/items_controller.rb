@@ -65,6 +65,8 @@ class ItemsController < ApplicationController
 
   def show
     set_user_column
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def destroy
