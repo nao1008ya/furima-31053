@@ -9,17 +9,6 @@ ja:
         last_name: 氏名
         last_kana_name: 氏名(カナ)
 
-      item:
-        title: タイトル
-        catch_copy: 商品の説明
-        image: 画像
-        price: 値段
-        category_id: カテゴリー
-        item_status_id: 商品の状態
-        shipping_fee_id: 配送料の負担
-        prefecture_id: 発送先の地域
-        shipping_fee_day_id: 発送までの日数
-
   activemodel:
     models:
       user_buyer:
@@ -31,3 +20,18 @@ ja:
         postal_code: 郵便番号
         tel: 電話番号
         prefecture_id: 都道府県
+  
+  activemodel:
+    models:
+      items_tag:
+    attributes:
+      items_tag:
+        title: タイトル
+        catch_copy: 商品の説明
+        images: 画像
+        price: 値段
+        category_id: カテゴリー
+        item_status_id: 商品の状態
+        shipping_fee_id: 配送料の負担
+        prefecture_id: 発送先の地域
+        shipping_fee_day_id: 発送までの日数
