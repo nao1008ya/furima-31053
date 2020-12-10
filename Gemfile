@@ -81,3 +81,5 @@ gem "gretel"
 # SNS認証のGem
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+# S3を使用するために必要なGemfile
+gem "aws-sdk-s3", require: false
